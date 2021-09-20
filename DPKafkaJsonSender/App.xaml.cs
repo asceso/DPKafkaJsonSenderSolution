@@ -13,7 +13,8 @@ namespace DPKafkaJsonSender
         {
             try
             {
-                return Container.Resolve<MainWindow>();
+                Window shell = (Window)Container.Resolve(typeof(MainWindow));
+                return shell;
             }
             catch (System.Exception ex)
             {

@@ -103,6 +103,9 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="EntityFramework">
+      <Version>6.4.4</Version>
+    </PackageReference>
     <PackageReference Include="HandyControls">
       <Version>3.3.7</Version>
     </PackageReference>
@@ -110,6 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="json-file.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="!Build\DPKafkaJsonSender.exe" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

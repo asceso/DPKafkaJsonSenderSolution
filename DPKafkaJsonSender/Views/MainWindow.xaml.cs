@@ -10,12 +10,29 @@ namespace DPKafkaJsonSender.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static readonly string DTimeFormat = "yyyy-MM-dd HH:mm:ss.fff";
         public MainWindow()
         {
             InitializeComponent();
-            TimeStampControl.SelectedTime = System.DateTime.Now;
-            RequestStampControl.SelectedTime = System.DateTime.Now;
-            ResponceStampControl.SelectedTime = System.DateTime.Now;
+            CalculateTime();
+        }
+        private void CalculateTimeClick(object sender, RoutedEventArgs e)
+        {
+            CalculateTime();
+        }
+        private void CalculateTime()
+        {
+            TimeStampControl.SelectedTime = System.DateTime.Now.AddMinutes(2);
+            RequestStampControl.SelectedTime = System.DateTime.Now.AddMinutes(1);
+            ResponceStampControl.SelectedTime = System.DateTime.Now.AddMinutes(1).AddSeconds(1);
+
+            if (DataContext is MainWindowViewModel vm)
+            {
+                vm.Client.Timestamp = TimeStampControl.SelectedTime.ToString(DTimeFormat);
+                vm.Client.DTimeRequestDp = RequestStampControl.SelectedTime.ToString(DTimeFormat);
+                vm.Client.DTimeResponseDp = ResponceStampControl.SelectedTime.ToString(DTimeFormat);
+                vm.RaiseClientModel();
+            }
         }
         private void TimeStampTimeChanged(object sender, HandyControl.Data.FunctionEventArgs<System.DateTime> e)
         {
@@ -23,7 +40,7 @@ namespace DPKafkaJsonSender.Views
             {
                 if (sender is HandyControl.Controls.TimeBar tb)
                 {
-                    string time_string = e.Info.ToString("yyyy-MM-dd HH:mm:ss.fff");
+                    string time_string = e.Info.ToString(DTimeFormat);
                     if (tb.Name == "TimeStampControl")
                     {
                         vm.Client.Timestamp = time_string;
@@ -39,11 +56,6 @@ namespace DPKafkaJsonSender.Views
                 }
                 vm.RaiseClientModel();
             }
-        }
-        private void OnlyNumbersTextPreview(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

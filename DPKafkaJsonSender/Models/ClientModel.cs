@@ -77,6 +77,7 @@ namespace DPKafkaJsonSender.Models
         {
             RaisePropertyChanged(nameof(LinkResponce));
             RaisePropertyChanged(nameof(PassportResponce));
+            RaisePropertyChanged(nameof(CommonResponce));
         }
 
         public string LinkResponce
@@ -105,11 +106,11 @@ namespace DPKafkaJsonSender.Models
                                        $"\"firstName\":\"{firstName}\"," +
                                        $"\"middleName\":\"{middleName}\"," +
                                        $"\"lastName\":\"{lastName}\"," +
-                                       $"\"series\":\"{passportSeries}\"," +
-                                       $"\"number\":\"{passportNumber}\"," +
+                                       $"\"series\":\"{(passportSeries == "____" ? string.Empty : passportSeries)}\"," +
+                                       $"\"number\":\"{(passportNumber == "______" ? string.Empty : passportNumber)}\"," +
                                        $"\"issuedBy\":\"{issuedBy}\"," +
                                        $"\"issueDate\":\"{issuedDate:dd.MM.yyyy}\"," +
-                                       $"\"issueId\":\"{issuedId.Replace('-', '\0')}\"," +
+                                       $"\"issueId\":\"{(string.IsNullOrEmpty(issuedId) || issuedId == "___-___" ? string.Empty : issuedId.Replace('-', '\0'))}\"," +
                                        $"\"type\":\"RF_PASSPORT\"" +
                                        $"}}," +
                                    $"\"error\":" +
@@ -214,7 +215,7 @@ namespace DPKafkaJsonSender.Models
             BirthDate = DateTime.Now;
         }
     }
-    public class AddressModel : BindableBase
+    public class AddressModel : BindableBase, ICloneable
     {
         private string addressStr;
         private string countryId;
@@ -249,5 +250,7 @@ namespace DPKafkaJsonSender.Models
         public string Building { get => building; set => SetProperty(ref building, value); }
         public string Flat { get => flat; set => SetProperty(ref flat, value); }
         public string FiasCode { get => fiasCode; set => SetProperty(ref fiasCode, value); }
+
+        public object Clone() => MemberwiseClone();
     }
 }

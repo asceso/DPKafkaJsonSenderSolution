@@ -1,4 +1,5 @@
-﻿using DPKafkaJsonSender.Views;
+﻿using DPKafkaJsonSender.ViewModels;
+using DPKafkaJsonSender.Views;
 using Prism.Ioc;
 using System.Windows;
 
@@ -13,7 +14,8 @@ namespace DPKafkaJsonSender
         {
             try
             {
-                Window shell = (Window)Container.Resolve(typeof(MainWindow));
+                Window shell = new MainWindow();
+                shell.DataContext = new MainWindowViewModel();
                 return shell;
             }
             catch (System.Exception ex)

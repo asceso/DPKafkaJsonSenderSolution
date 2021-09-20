@@ -12,7 +12,15 @@ namespace DPKafkaJsonSender
     {
         protected override Window CreateShell()
         {
-            return Container.Resolve<MainWindow>();
+            try
+            {
+                return Container.Resolve<MainWindow>();
+            }
+            catch (System.Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return null;
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

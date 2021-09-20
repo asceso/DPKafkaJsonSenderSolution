@@ -114,7 +114,6 @@
   <ItemGroup>
     <Resource Include="json-file.ico" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="!Build\DPKafkaJsonSender.exe" />
   </ItemGroup>

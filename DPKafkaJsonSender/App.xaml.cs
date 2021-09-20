@@ -1,6 +1,5 @@
 ﻿using DPKafkaJsonSender.Views;
 using Prism.Ioc;
-using Prism.Modularity;
 using System.Windows;
 
 namespace DPKafkaJsonSender
@@ -18,7 +17,7 @@ namespace DPKafkaJsonSender
             }
             catch (System.Exception ex)
             {
-                MessageBox.Show(ex.Message + ex.StackTrace);
+                MessageBox.Show(ex.Message + ex.StackTrace + ex.InnerException.Message + ex.InnerException.StackTrace);
             }
             return null;
         }

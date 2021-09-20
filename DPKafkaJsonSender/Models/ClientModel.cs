@@ -1,5 +1,4 @@
-﻿using HandyControl.Data;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using System;
 
 namespace DPKafkaJsonSender.Models
@@ -50,8 +49,8 @@ namespace DPKafkaJsonSender.Models
         public string Snils { get => RaiseLinksAndReturnField(snils); set => SetProperty(ref snils, value); }
         public string INN { get => RaiseLinksAndReturnField(inn); set => SetProperty(ref inn, value); }
         public string Gender { get => RaiseLinksAndReturnField(gender); set => SetProperty(ref gender, value); }
-        public string MobilePhone{ get => RaiseLinksAndReturnField(mobilePhone); set => SetProperty(ref mobilePhone, value); }
-        public string HomePhone{ get => RaiseLinksAndReturnField(homePhone); set => SetProperty(ref homePhone, value); }
+        public string MobilePhone { get => RaiseLinksAndReturnField(mobilePhone); set => SetProperty(ref mobilePhone, value); }
+        public string HomePhone { get => RaiseLinksAndReturnField(homePhone); set => SetProperty(ref homePhone, value); }
         public string BirthPlace { get => RaiseLinksAndReturnField(birthPlace); set => SetProperty(ref birthPlace, value); }
         public DateTime BirthDate { get => RaiseLinksAndReturnField(birthDate); set => SetProperty(ref birthDate, value); }
         public AddressModel RegistrationAddress { get => RaiseLinksAndReturnField(registrationAddress); set => SetProperty(ref registrationAddress, value); }

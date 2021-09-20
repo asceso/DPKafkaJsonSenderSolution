@@ -18,7 +18,7 @@ namespace DPKafkaJsonSender
             }
             catch (System.Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message + ex.StackTrace);
             }
             return null;
         }

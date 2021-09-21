@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPKafkaJsonSender", "DPKafkaJsonSender\DPKafkaJsonSender.csproj", "{E9C6D080-DE33-48FF-8634-D600F10F177B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DPKafkaJsonSenderWPF", "DPKafkaJsonSenderWPF\DPKafkaJsonSenderWPF.csproj", "{14EF3BC5-9507-4B9A-ABDA-421DB7490A02}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E9C6D080-DE33-48FF-8634-D600F10F177B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9C6D080-DE33-48FF-8634-D600F10F177B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9C6D080-DE33-48FF-8634-D600F10F177B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14EF3BC5-9507-4B9A-ABDA-421DB7490A02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14EF3BC5-9507-4B9A-ABDA-421DB7490A02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14EF3BC5-9507-4B9A-ABDA-421DB7490A02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14EF3BC5-9507-4B9A-ABDA-421DB7490A02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
